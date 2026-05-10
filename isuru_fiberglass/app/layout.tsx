@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { connectDB } from "@/lib/mongodb";
+
+// Connect to MongoDB on startup
+connectDB().catch(err => console.error("MongoDB connection failed:", err));
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
